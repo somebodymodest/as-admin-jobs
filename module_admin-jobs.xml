@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_admin-jobs" default="compile.module.admin-jobs">
+  <dirname property="module.admin-jobs.basedir" file="${ant.file.module_admin-jobs}"/>
+  
+  <property name="module.jdk.home.admin-jobs" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.admin-jobs" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.admin-jobs" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.admin-jobs" value="-encoding UTF-8 -source 1.7 -target 1.7 ${compiler.args}"/>
+  
+  <property name="admin-jobs.output.dir" value="${module.admin-jobs.basedir}/target/classes"/>
+  <property name="admin-jobs.testoutput.dir" value="${module.admin-jobs.basedir}/target/test-classes"/>
+  
+  <path id="admin-jobs.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="admin-jobs.module.production.classpath">
+    <path refid="${module.jdk.classpath.admin-jobs}"/>
+    <path refid="library.maven:_io.netty:netty-all:4.1.22.final.classpath"/>
+    <path refid="library.maven:_org.sonatype.aether:aether-impl:1.7.classpath"/>
+    <path refid="library.maven:_org.sonatype.aether:aether-api:1.7.classpath"/>
+    <path refid="library.maven:_org.sonatype.aether:aether-spi:1.7.classpath"/>
+    <path refid="library.maven:_org.sonatype.aether:aether-util:1.7.classpath"/>
+  </path>
+  
+  <path id="admin-jobs.runtime.production.module.classpath">
+    <pathelement location="${admin-jobs.output.dir}"/>
+    <path refid="library.maven:_io.netty:netty-all:4.1.22.final.classpath"/>
+    <path refid="library.maven:_org.sonatype.aether:aether-impl:1.7.classpath"/>
+    <path refid="library.maven:_org.sonatype.aether:aether-api:1.7.classpath"/>
+    <path refid="library.maven:_org.sonatype.aether:aether-spi:1.7.classpath"/>
+    <path refid="library.maven:_org.sonatype.aether:aether-util:1.7.classpath"/>
+  </path>
+  
+  <path id="admin-jobs.module.classpath">
+    <path refid="${module.jdk.classpath.admin-jobs}"/>
+    <pathelement location="${admin-jobs.output.dir}"/>
+    <path refid="library.maven:_io.netty:netty-all:4.1.22.final.classpath"/>
+    <path refid="library.maven:_org.sonatype.aether:aether-impl:1.7.classpath"/>
+    <path refid="library.maven:_org.sonatype.aether:aether-api:1.7.classpath"/>
+    <path refid="library.maven:_org.sonatype.aether:aether-spi:1.7.classpath"/>
+    <path refid="library.maven:_org.sonatype.aether:aether-util:1.7.classpath"/>
+  </path>
+  
+  <path id="admin-jobs.runtime.module.classpath">
+    <pathelement location="${admin-jobs.testoutput.dir}"/>
+    <pathelement location="${admin-jobs.output.dir}"/>
+    <path refid="library.maven:_io.netty:netty-all:4.1.22.final.classpath"/>
+    <path refid="library.maven:_org.sonatype.aether:aether-impl:1.7.classpath"/>
+    <path refid="library.maven:_org.sonatype.aether:aether-api:1.7.classpath"/>
+    <path refid="library.maven:_org.sonatype.aether:aether-spi:1.7.classpath"/>
+    <path refid="library.maven:_org.sonatype.aether:aether-util:1.7.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.admin-jobs">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.admin-jobs">
+    <patternset refid="excluded.from.module.admin-jobs"/>
+  </patternset>
+  
+  <path id="admin-jobs.module.sourcepath">
+    <dirset dir="${module.admin-jobs.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  <path id="admin-jobs.module.test.sourcepath">
+    <dirset dir="${module.admin-jobs.basedir}">
+      <include name="src/test/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.admin-jobs" depends="compile.module.admin-jobs.production,compile.module.admin-jobs.tests" description="Compile module admin-jobs"/>
+  
+  <target name="compile.module.admin-jobs.production" depends="register.custom.compilers" description="Compile module admin-jobs; production classes">
+    <mkdir dir="${admin-jobs.output.dir}"/>
+    <javac2 destdir="${admin-jobs.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.admin-jobs}/javac">
+      <compilerarg line="${compiler.args.admin-jobs}"/>
+      <bootclasspath refid="admin-jobs.module.bootclasspath"/>
+      <classpath refid="admin-jobs.module.production.classpath"/>
+      <src refid="admin-jobs.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.admin-jobs"/>
+    </javac2>
+    
+    <copy todir="${admin-jobs.output.dir}">
+      <fileset dir="${module.admin-jobs.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.admin-jobs.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.admin-jobs.tests" depends="register.custom.compilers,compile.module.admin-jobs.production" description="compile module admin-jobs; test classes" unless="skip.tests">
+    <mkdir dir="${admin-jobs.testoutput.dir}"/>
+    <javac2 destdir="${admin-jobs.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.admin-jobs}/javac">
+      <compilerarg line="${compiler.args.admin-jobs}"/>
+      <bootclasspath refid="admin-jobs.module.bootclasspath"/>
+      <classpath refid="admin-jobs.module.classpath"/>
+      <src refid="admin-jobs.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.admin-jobs"/>
+    </javac2>
+    
+    <copy todir="${admin-jobs.testoutput.dir}">
+      <fileset dir="${module.admin-jobs.basedir}/src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.admin-jobs" description="cleanup module">
+    <delete dir="${admin-jobs.output.dir}"/>
+    <delete dir="${admin-jobs.testoutput.dir}"/>
+  </target>
+</project>

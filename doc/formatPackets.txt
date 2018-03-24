@@ -1,0 +1,442 @@
+$formatPackets = array (
+		"CheckCharacter" => array(
+			"id" => 1,
+			"args" => "ciL",
+		),
+		"SetCharacterLocation" => array(
+			"id" => 2,
+			"args" => "ciiiiiL",
+		),
+		"SetBuilderCharacter" => array(
+			"id" => 3,
+			"args" => "ciiL",
+		),
+		"ChangeCharacterName" => array(
+			"id" => 4,
+			"args" => "ciuL",
+		),
+		"KickCharacter" => array(
+			"id" => 5,
+			"args" => "ciL",
+		),
+		"AddSkill" => array(
+			"id" => 6,
+			"args" => "ciiiL",
+		),
+		"DelSkill" => array(
+			"id" => 7,
+			"args" => "ciiL",
+		),
+		"ModSkill" => array(
+			"id" => 8,
+			"args" => "ciiiL",
+		),
+		"SetOnetimeQuest" => array(
+			"id" => 9,
+			"args" => "ciiiL",
+		),
+		"SetQuest" => array(
+			"id" => 10,
+			"args" => "ciiiL",
+		),
+		"DelQuest" => array(
+			"id" => 11,
+			"args" => "ciiL",
+		),
+		"AddItem" => array(
+			"id" => 12,
+		),
+		"DelItem" => array(
+			"id" => 13,
+			"args" => "ciiiIL",
+		),
+		"ModItem" => array(
+			"id" => 14,
+			"args" => "ciiiiIiiiiiL",
+		),
+		"ModChar" => array(
+			"id" => 15,
+			"args" => "ciiiiiiiL",
+		),
+		"ModChar2" => array(
+			"id" => 16,
+			"args" => "ciiIiiiiL",
+		),
+		"ModCharTitle" => array(
+			"id" => 17,
+			"args" => "ciuL",
+		),
+		"PunishChar" => array(
+			"id" => 18,
+			"args" => "ciiiL",
+		),
+		"SetBuilderAccount" => array(
+			"id" => 19,
+			"args" => "cuiL",
+		),
+		"DisableCharacter" => array(
+			"id" => 20,
+			"args" => "ciiL",
+		),
+		"EnableCharacter" => array(
+			"id" => 21,
+			"args" => "ciiL",
+		),
+		"GetCharacters" => array(
+			"id" => 22,
+		),
+		"SetBookMark" => array(
+			"id" => 23,
+			"args" => "ciuiiiiL",
+		),
+		"DelBookMark" => array(
+			"id" => 24,
+			"args" => "ciuL",
+		),
+		"DelPledgeCrest" => array(
+			"id" => 25,
+			"args" => "ciL",
+		),
+		"ModPledgeName" => array(
+			"id" => 26,
+			"args" => "ciuL",
+		),
+		"SetProhibited" => array(
+			"id" => 27,
+			"args" => "ciuL",
+		),
+		"SeizeItem" => array(
+			"id" => 28,
+			"args" => "ciiiiL",
+		),
+		"ModChar3" => array(
+			"id" => 29,
+			"args" => "ciiIiiiiL",
+		),
+		"MoveItem" => array(
+			"id" => 30,
+			"args" => "ciiiiiL",
+		),
+		"MoveCharacter" => array(
+			"id" => 31,
+			"args" => "ciiuL",
+		),
+		"CommentWrite" => array(
+			"id" => 32,
+			"args" => "ciuuL",
+		),
+		"CommentDelete" => array(
+			"id" => 33,
+			"args" => "ciiL",
+		),
+		"DeleteChar" => array(
+			"id" => 34,
+			"args" => "ciL",
+		),
+		"RestoreChar" => array(
+			"id" => 35,
+			"args" => "ciiuL",
+		),
+		"PledgeOust" => array(
+			"id" => 36,
+			"args" => "ciL",
+		),
+		"PledgeChangeOwner" => array(
+			"id" => 37,
+			"args" => "ciiL",
+		),
+		"PledgeDelete" => array(
+			"id" => 38,
+			"args" => "ciL",
+		),
+		"BanChar" => array(
+			"id" => 39,
+			"args" => "ciiL",
+		),
+		"MoveItem2" => array(
+			"id" => 40,
+			"args" => "ciiiiL",
+		),
+		"PrintAllAccountData" => array(
+			"id" => 41,
+		),
+		"PrintAllItemData" => array(
+			"id" => 42,
+		),
+		"CopyChar" => array(
+			"id" => 43,
+			"args" => "ciuiuL",
+		),
+		"CreatePet" => array(
+			"id" => 44,
+			"args" => "ciiiiiiiiL",
+		),
+		"SendHome" => array(
+			"id" => 45,
+			"args" => "ciL",
+		),
+		"ChangePledgeLevel" => array(
+			"id" => 46,
+			"args" => "ciiL",
+		),
+		"CreatePledge" => array(
+			"id" => 47,
+			"args" => "cuiL",
+		),
+		"SetSkillAll" => array(
+			"id" => 48,
+			"args" => "ciL",
+		),
+		"RestoreChar2" => array(
+			"id" => 49,
+			"args" => "ciuiuL",
+		),
+		"ManAnnounce" => array(
+			"id" => 50,
+			"args" => "ciiuL",
+		),
+		"ManIntAnnounce" => array(
+			"id" => 51,
+			"args" => "ciiiuL",
+		),
+		"ModWeekPlay" => array(
+			"id" => 52,
+			"args" => "ciiiL",
+		),
+		"SeizeItem2" => array(
+			"id" => 53,
+			"args" => "ciiL",
+		),
+		"DelItem2" => array(
+			"id" => 54,
+			"args" => "ciIiL",
+		),
+		/*
+			i	:	$char_id
+			i	:	$warehouse
+			i	:	$item_type
+			I	:	$amount
+			i	:	$enchant
+			i	:	$eroded
+			i	:	$bless
+			i	:	$ident
+			i	:	$wished
+			i	:	$augmentation1
+			i	:	$augmentation2
+			i	:	$intensive_item_type
+			i	:	$mana
+			v	:	$atk_attr_type
+			v	:	$atk_attr_value
+			v	:	$def_attr0
+			v	:	$def_attr1
+			v	:	$def_attr2
+			v	:	$def_attr3
+			v	:	$def_attr4
+			v	:	$def_attr5
+		*/
+		"AddItem2" => array(
+			"id" => 55,
+			"args" => "cVVVVVVVVVVVVVVvvvvvvvvL",
+			//"args" => "ciiiIiiiiiiiiiiiiiiL",
+			//"args" => "ciiiIiiiiiiiiivvvvvvvvL",
+		),
+		"GetCharacters2" => array(
+			"id" => 56,
+			"args" => "ciL",
+		),
+		"DelMacro" => array(
+			"id" => 57,
+			"args" => "ciiL",
+		),
+		"DelMonRaceTicket" => array(
+			"id" => 58,
+			"args" => "ciiiL",
+		),
+		"DelRecipe" => array(
+			"id" => 59,
+			"args" => "ciiL",
+		),
+		"DelLotto" => array(
+			"id" => 60,
+		),
+		"ModifyPledgePower" => array(
+			"id" => 61,
+			"args" => "ciiuL",
+		),
+		"EventPoint" => array(
+			"id" => 62,
+		),
+		"GetPledge" => array(
+			"id" => 63,
+			"args" => "ciL",
+		),
+		"EventPoint2" => array(
+			"id" => 64,
+		),
+		"CreateCharacter" => array(
+			"id" => 65,
+			"args" => "cuuiiiiiiiiffiIiiiiiiiiL",
+		),
+		"AddItems" => array(
+			"id" => 66,
+		),
+		"AddSkills" => array(
+			"id" => 67,
+		),
+		"GetCharacters3" => array(
+			"id" => 68,
+			"args" => "ciL",
+		),
+		"SetSociality" => array(
+			"id" => 69,
+		),
+		"SetInstantAnnounce" => array(
+			"id" => 70,
+			"args" => "cuL",
+		),
+		"DelHenna" => array(
+			"id" => 71,
+		),
+		"AddHenna" => array(
+			"id" => 72,
+		),
+		"ReserveCharName" => array(
+			"id" => 73,
+			"args" => "ciuiiL",
+		),
+		"AddHennas" => array(
+			"id" => 74,
+		),
+		"GetCastleList" => array(
+			"id" => 75,
+		),
+		"ModifyCharProperty" => array(
+			"id" => 76,
+			"args" => "ciiIiiiiiL",
+		),
+		"ModifyCharAbilityDelta" => array(
+			"id" => 77,
+			"args" => "ciiiiiiiiL",
+		),
+		"ModifyCharAbility" => array(
+			"id" => 78,
+			"args" => "ciiiiiiiiL",
+		),
+		"DelHenna2" => array(
+			"id" => 79,
+			"args" => "ciiiL",
+		),
+		"AddHenna2" => array(
+			"id" => 80,
+			"args" => "ciiiL",
+		),
+		"AddSkill2" => array(
+			"id" => 81,
+			"args" => "ciiiiL",
+		),
+		"DelSkill2" => array(
+			"id" => 82,
+			"args" => "ciiiL",
+		),
+		"ModifySkill2" => array(
+			"id" => 83,
+			"args" => "ciiiiL",
+		),
+		"AddMacro" => array(
+			"id" => 84,
+			"args" => "ciuuuiL",
+		),
+		"GetSSQStatus" => array(
+			"id" => 85,
+		),
+		"GetSSQMainEventRecord" => array(
+			"id" => 86,
+		),
+		"ModifyDepositedSSQItem" => array(
+			"id" => 87,
+			"args" => "ciiiiL",
+		),
+		"ChangePetName" => array(
+			"id" => 88,
+			"args" => "ciiuL",
+		),
+		"ChangeSubJob" => array(
+			"id" => 89,
+			"args" => "ciiL",
+		),
+		"StopChar" => array(
+			"id" => 90,
+			"args" => "ciiL",
+		),
+		"CancelPersonalShop" => array(
+			"id" => 91,
+			"args" => "ciiL",
+		),
+		"AddMacroInfo" => array(
+			"id" => 92,
+			"args" => "ciiiiiiuL",
+		),
+		"CreateCharacter2" => array(
+			"id" => 93,
+			"args" => "cuuiiiiiiiiffiIiiiiiiiiiifL",
+		),
+		"AddSkills2" => array(
+			"id" => 94,
+		),
+		"AddHennas2" => array(
+			"id" => 95,
+		),
+		"AddSubjobs" => array(
+			"id" => 96,
+		),
+		"GetPledge2" => array(
+			"id" => 97,
+			"args" => "ciL",
+		),
+		"DelPledgeEmblem" => array(
+			"id" => 98,
+			"args" => "ciL",
+		),
+		"RegisterAccount" => array(
+			"id" => 99,
+			"args" => "cuL",
+		),
+		"DelPledgeAnnounce" => array(
+			"id" => 100,
+			"args" => "ciL",
+		),
+		"SendPrivateAnnounce" => array(
+			"id" => 101,
+			"args" => "ciuL",
+		),
+		"GetAgitList" => array(
+			"id" => 102,
+		),
+		"GetPledgeMember" => array(
+			"id" => 103,
+			"args" => "ciL",
+		),
+		"EternalBan" => array(
+			"id" => 104,
+			"args" => "ciL",
+		),
+		"GetCharacters4" => array(
+			"id" => 105,
+			"args" => "ciL",
+		),
+		"SetNobless" => array(
+			"id" => 106,
+			"args" => "ciiL",
+		),
+		"SetHero" => array(
+			"id" => 107,
+			"args" => "ciiL",
+		),
+		"SetPartyLocation" => array(
+			"id" => 108,
+			"args" => "ciiiiL",
+		),
+		"ModOlympiadPoint" => array(
+			"id" => 109,
+			"args" => "ciiiiL",
+		),
