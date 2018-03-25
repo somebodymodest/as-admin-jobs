@@ -47,7 +47,6 @@ public class AdminJobServerInitializer extends ChannelInitializer<SocketChannel>
 
         // Add the number codec first,
         pipeline.addLast(new PacketDecoder());
-        //pipeline.addLast(new NumberEncoder());
 
         // and then business logic.
         // Please note we create a handler for every new channel

@@ -2,17 +2,13 @@ package com.mmobite.admin_jobs.network.managers;
 
 import com.mmobite.admin_jobs.network.packet.AdminRequestPacket;
 import com.mmobite.admin_jobs.network.handlers.SendMessageToGamePacket;
-
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Logger;
 
 /**
  * Created by Ivan on 23.03.2018.
  */
 public class PacketManager {
-
-    private static Logger log = Logger.getLogger(PacketManager.class.getName());
 
     private final static Map<AdminRequestType, Class<? extends AdminRequestPacket>> packets = new HashMap<>();
 

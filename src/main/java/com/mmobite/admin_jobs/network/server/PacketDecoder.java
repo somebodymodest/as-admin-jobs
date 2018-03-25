@@ -15,17 +15,12 @@
  */
 package com.mmobite.admin_jobs.network.server;
 
-import com.mmobite.admin_jobs.network.managers.PacketManager;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
-
 import java.util.List;
-import java.util.logging.Logger;
 
 public class PacketDecoder extends ByteToMessageDecoder {
-
-    private static Logger log = Logger.getLogger(PacketManager.class.getName());
 
     @Override
     protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) {

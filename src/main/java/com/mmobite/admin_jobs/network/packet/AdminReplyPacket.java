@@ -1,14 +1,7 @@
 package com.mmobite.admin_jobs.network.packet;
 
-import com.mmobite.admin_jobs.network.managers.PacketManager;
-import com.mmobite.admin_jobs.network.packet.AdminRequestPacket;
-import com.mmobite.admin_jobs.network.packet.WritePacket;
-
-import java.util.logging.Logger;
-
 public class AdminReplyPacket extends WritePacket {
 
-    private static Logger log = Logger.getLogger(PacketManager.class.getName());
     private int success_;
     private int error_code_;
 

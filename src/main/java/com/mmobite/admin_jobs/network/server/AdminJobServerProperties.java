@@ -1,16 +1,14 @@
 package com.mmobite.admin_jobs.network.server;
 
-import com.mmobite.admin_jobs.network.managers.PacketManager;
-
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class AdminJobServerProperties {
 
-    private static Logger log = Logger.getLogger(PacketManager.class.getName());
+    private static Logger log = LoggerFactory.getLogger(AdminJobServerProperties.class.getName());
     private final static String filename = "antispam/admin_job.properties";
 
     public static boolean Enabled;
@@ -35,7 +33,7 @@ public class AdminJobServerProperties {
         }
         catch (Exception ex)
         {
-            log.log(Level.SEVERE, "Load config exception: ", ex);
+            log.error("Load config exception: ", ex);
         }
     }
 
