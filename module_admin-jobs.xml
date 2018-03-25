@@ -14,46 +14,7 @@
   <path id="admin-jobs.module.bootclasspath">
     <!-- Paths to be included in compilation bootclasspath -->
   </path>
-  
-  <path id="admin-jobs.module.production.classpath">
-    <path refid="${module.jdk.classpath.admin-jobs}"/>
-    <path refid="library.maven:_io.netty:netty-all:4.1.22.final.classpath"/>
-    <path refid="library.maven:_org.sonatype.aether:aether-impl:1.7.classpath"/>
-    <path refid="library.maven:_org.sonatype.aether:aether-api:1.7.classpath"/>
-    <path refid="library.maven:_org.sonatype.aether:aether-spi:1.7.classpath"/>
-    <path refid="library.maven:_org.sonatype.aether:aether-util:1.7.classpath"/>
-  </path>
-  
-  <path id="admin-jobs.runtime.production.module.classpath">
-    <pathelement location="${admin-jobs.output.dir}"/>
-    <path refid="library.maven:_io.netty:netty-all:4.1.22.final.classpath"/>
-    <path refid="library.maven:_org.sonatype.aether:aether-impl:1.7.classpath"/>
-    <path refid="library.maven:_org.sonatype.aether:aether-api:1.7.classpath"/>
-    <path refid="library.maven:_org.sonatype.aether:aether-spi:1.7.classpath"/>
-    <path refid="library.maven:_org.sonatype.aether:aether-util:1.7.classpath"/>
-  </path>
-  
-  <path id="admin-jobs.module.classpath">
-    <path refid="${module.jdk.classpath.admin-jobs}"/>
-    <pathelement location="${admin-jobs.output.dir}"/>
-    <path refid="library.maven:_io.netty:netty-all:4.1.22.final.classpath"/>
-    <path refid="library.maven:_org.sonatype.aether:aether-impl:1.7.classpath"/>
-    <path refid="library.maven:_org.sonatype.aether:aether-api:1.7.classpath"/>
-    <path refid="library.maven:_org.sonatype.aether:aether-spi:1.7.classpath"/>
-    <path refid="library.maven:_org.sonatype.aether:aether-util:1.7.classpath"/>
-  </path>
-  
-  <path id="admin-jobs.runtime.module.classpath">
-    <pathelement location="${admin-jobs.testoutput.dir}"/>
-    <pathelement location="${admin-jobs.output.dir}"/>
-    <path refid="library.maven:_io.netty:netty-all:4.1.22.final.classpath"/>
-    <path refid="library.maven:_org.sonatype.aether:aether-impl:1.7.classpath"/>
-    <path refid="library.maven:_org.sonatype.aether:aether-api:1.7.classpath"/>
-    <path refid="library.maven:_org.sonatype.aether:aether-spi:1.7.classpath"/>
-    <path refid="library.maven:_org.sonatype.aether:aether-util:1.7.classpath"/>
-  </path>
-  
-  
+
   <patternset id="excluded.from.module.admin-jobs">
     <patternset refid="ignored.files"/>
   </patternset>
