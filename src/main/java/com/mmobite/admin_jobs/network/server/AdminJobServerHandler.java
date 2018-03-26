@@ -43,8 +43,6 @@ public class AdminJobServerHandler extends ChannelInboundHandlerAdapter {
 
         if (pkt.read())
             pkt.run();
-
-        buf.release();
     }
 
     @Override
