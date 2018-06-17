@@ -36,7 +36,7 @@ public class AdminJobServerHandler extends ChannelInboundHandlerAdapter {
             return;
 
         ByteBuf buf = (ByteBuf) msg;
-        short opcode = (short) buf.readByte();
+        short opcode = (short) buf.readUnsignedByte();
 
         AdminRequestPacket pkt = PacketManager.getPacket(opcode);
         pkt.setOpcode(opcode);

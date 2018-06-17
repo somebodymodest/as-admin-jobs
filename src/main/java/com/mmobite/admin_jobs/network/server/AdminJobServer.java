@@ -35,7 +35,7 @@ public final class AdminJobServer {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        });
+        }).start();;
     }
 
     static void start(String[] args) throws Exception {
