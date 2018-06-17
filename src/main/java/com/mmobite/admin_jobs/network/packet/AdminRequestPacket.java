@@ -34,8 +34,7 @@ public class AdminRequestPacket extends ReadPacket {
         sendReply(new AdminReplyPacket(this, error_code));
     }
 
-    public void sendReply(AdminReplyPacket reply)
-    {
+    public void sendReply(AdminReplyPacket reply) {
         reply.write();
         reply.getChannel().writeAndFlush(reply.getBuffer()).addListener(ChannelFutureListener.CLOSE);
     }

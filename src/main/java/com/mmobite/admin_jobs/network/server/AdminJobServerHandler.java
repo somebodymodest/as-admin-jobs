@@ -32,8 +32,10 @@ public class AdminJobServerHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        ByteBuf buf = (ByteBuf) msg;
+        if (!AdminJobServerProperties.Enabled)
+            return;
 
+        ByteBuf buf = (ByteBuf) msg;
         short opcode = (short) buf.readByte();
 
         AdminRequestPacket pkt = PacketManager.getPacket(opcode);

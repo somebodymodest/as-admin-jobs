@@ -9,22 +9,16 @@ import org.slf4j.LoggerFactory;
 public class AdminJobServerProperties {
 
     private static Logger log = LoggerFactory.getLogger(AdminJobServerProperties.class.getName());
-    private final static String filename = "antispam/admin_job.properties";
 
     public static boolean Enabled;
     public static int Port;
 
-    static
-    {
-        load();
-    }
-
-    private static void load()
+    public static void load(String configPath)
     {
         try
         {
             Properties prop = new Properties();
-            InputStream stream = new FileInputStream(filename);
+            InputStream stream = new FileInputStream(configPath);
             prop.load(stream);
             stream.close();
 

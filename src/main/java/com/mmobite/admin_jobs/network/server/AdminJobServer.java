@@ -27,26 +27,26 @@ import io.netty.handler.ssl.util.SelfSignedCertificate;
 
 public final class AdminJobServer {
 
-    static final boolean SSL = System.getProperty("ssl") != null;
+    public static void init(String[] args) {
+        AdminJobServerProperties.load("admin_job.properties");
+        new Thread(() -> {
+            try {
+                AdminJobServer.start(args);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
 
-    public static void main(String[] args) throws Exception {
-        // Configure SSL.
-        final SslContext sslCtx;
-        if (SSL) {
-            SelfSignedCertificate ssc = new SelfSignedCertificate();
-            sslCtx = SslContextBuilder.forServer(ssc.certificate(), ssc.privateKey()).build();
-        } else {
-            sslCtx = null;
-        }
-
+    static void start(String[] args) throws Exception {
         EventLoopGroup bossGroup = new NioEventLoopGroup(1);
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
             ServerBootstrap b = new ServerBootstrap();
             b.group(bossGroup, workerGroup)
-             .channel(NioServerSocketChannel.class)
-             .handler(new LoggingHandler(LogLevel.ERROR))
-             .childHandler(new AdminJobServerInitializer(sslCtx));
+                    .channel(NioServerSocketChannel.class)
+                    .handler(new LoggingHandler(LogLevel.ERROR))
+                    .childHandler(new AdminJobServerInitializer());
 
             b.bind(AdminJobServerProperties.Port).sync().channel().closeFuture().sync();
         } finally {

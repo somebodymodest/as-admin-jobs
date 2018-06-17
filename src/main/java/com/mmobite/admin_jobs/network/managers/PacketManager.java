@@ -2,6 +2,7 @@ package com.mmobite.admin_jobs.network.managers;
 
 import com.mmobite.admin_jobs.network.packet.AdminRequestPacket;
 import com.mmobite.admin_jobs.network.handlers.SendMessageToGamePacket;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,7 +20,7 @@ public class PacketManager {
 
     public static AdminRequestPacket getPacket(short opcode) {
         try {
-            return packets.get(AdminRequestType.valueOf((int)opcode)).newInstance();
+            return packets.get(AdminRequestType.valueOf((int) opcode)).newInstance();
         } catch (Exception ex) {
             return new AdminRequestPacket();
         }

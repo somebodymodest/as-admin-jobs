@@ -115,8 +115,7 @@ public enum AdminRequestType {
     SetPartyLocation(108),
     ModOlympiadPoint(109),
     // AdvExt
-    SendMessageToGame(115)
-    ;
+    SendMessageToGame(115);
 
     private final int id;
     private static Map<Integer, AdminRequestType> map = new HashMap<Integer, AdminRequestType>();

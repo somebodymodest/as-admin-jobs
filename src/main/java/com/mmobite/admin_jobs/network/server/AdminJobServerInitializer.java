@@ -27,23 +27,12 @@ import io.netty.handler.logging.LoggingHandler;
  */
 public class AdminJobServerInitializer extends ChannelInitializer<SocketChannel> {
 
-    private final SslContext sslCtx;
-
-    AdminJobServerInitializer(SslContext sslCtx) {
-        this.sslCtx = sslCtx;
+    AdminJobServerInitializer() {
     }
 
     @Override
     public void initChannel(SocketChannel ch) {
         ChannelPipeline pipeline = ch.pipeline();
-
-        if (sslCtx != null) {
-            pipeline.addLast(sslCtx.newHandler(ch.alloc()));
-        }
-
-        // Enable stream compression (you can remove these two if unnecessary)
-        //pipeline.addLast(ZlibCodecFactory.newZlibEncoder(ZlibWrapper.GZIP));
-        //pipeline.addLast(ZlibCodecFactory.newZlibDecoder(ZlibWrapper.GZIP));
 
         // Add the number codec first,
         pipeline.addLast(new PacketDecoder());
