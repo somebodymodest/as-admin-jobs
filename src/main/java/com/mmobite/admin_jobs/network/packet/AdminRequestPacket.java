@@ -23,7 +23,8 @@ public class AdminRequestPacket extends ReadPacket {
 
     @Override
     public void run() {
-        System.out.print("called Dummy AdminRequestPacket");
+        //System.out.print("called Dummy AdminRequestPacket");
+        replyOk();
     }
 
     public void replyOk() {

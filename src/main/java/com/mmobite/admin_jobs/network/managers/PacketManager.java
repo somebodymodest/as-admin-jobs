@@ -14,7 +14,7 @@ public class PacketManager {
     private final static Map<AdminRequestType, Class<? extends AdminRequestPacket>> packets = new HashMap<>();
 
     static {
-        packets.put(AdminRequestType.Dummy, AdminRequestPacket.class);
+        packets.put(AdminRequestType.CheckVersion, AdminRequestPacket.class);
         packets.put(AdminRequestType.SendMessageToGame, SendMessageToGamePacket.class);
     }
 

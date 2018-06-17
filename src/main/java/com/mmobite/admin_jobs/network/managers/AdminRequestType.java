@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum AdminRequestType {
-    Dummy(0),
+    CheckVersion(0),
     CheckCharacter(1),
     SetCharacterLocation(2),
     SetBuilderCharacter(3),
