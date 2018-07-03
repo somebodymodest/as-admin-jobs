@@ -13,21 +13,23 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package com.mmobite.admin_jobs.network.server;
+package com.mmobite.admin_jobs.network.admin_channel.server;
 
+import com.mmobite.admin_jobs.network.model.server.PacketDecoder;
+import com.mmobite.admin_jobs.network.model.server.PacketEncoder;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
-import io.netty.handler.ssl.SslContext;
-import io.netty.handler.logging.LogLevel;
-import io.netty.handler.logging.LoggingHandler;
 
 /**
  * Creates a newly configured {@link ChannelPipeline} for a server-side channel.
  */
-public class AdminJobServerInitializer extends ChannelInitializer<SocketChannel> {
+public class AdminServerInitializer extends ChannelInitializer<SocketChannel> {
 
-    AdminJobServerInitializer() {
+    private final AdminServerHandler handler_;
+
+    AdminServerInitializer(AdminServerHandler handler) {
+        this.handler_ = handler;
     }
 
     @Override
@@ -36,10 +38,11 @@ public class AdminJobServerInitializer extends ChannelInitializer<SocketChannel>
 
         // Add the number codec first,
         pipeline.addLast(new PacketDecoder());
+        pipeline.addLast(new PacketEncoder());
 
         // and then business logic.
         // Please note we create a handler for every new channel
         // because it has stateful properties.
-        pipeline.addLast(new AdminJobServerHandler());
+        pipeline.addLast(handler_);
     }
 }

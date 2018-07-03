@@ -13,13 +13,13 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package com.mmobite.admin_jobs.network.server;
+package com.mmobite.admin_jobs.network.admin_channel.server;
 
-import com.mmobite.admin_jobs.network.packet.AdminRequestPacket;
+import com.mmobite.admin_jobs.network.admin_channel.packets.PacketManager;
+import com.mmobite.admin_jobs.network.model.packet.ReadPacket;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-import com.mmobite.admin_jobs.network.managers.PacketManager;
 
 /**
  * Handler for a server-side channel.  This handler maintains stateful
@@ -28,23 +28,34 @@ import com.mmobite.admin_jobs.network.managers.PacketManager;
  * to create a new handler instance whenever you create a new channel and insert
  * this handler  to avoid a race condition.
  */
-public class AdminJobServerHandler extends ChannelInboundHandlerAdapter {
+public class AdminServerHandler extends ChannelInboundHandlerAdapter {
 
-    @Override
+    private AdminServer server_;
+
+    public void setServer(AdminServer server) {
+        server_ = server;
+    }
+
+    public AdminServer getServer() {
+        return server_;
+    }
+
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        if (!AdminJobServerProperties.Enabled)
+        if (!AdminServerProperties.Enabled)
             return;
 
         ByteBuf buf = (ByteBuf) msg;
-        short opcode = (short) buf.readUnsignedByte();
+        int opcode = (int) buf.readUnsignedByte();
 
-        AdminRequestPacket pkt = PacketManager.getPacket(opcode);
-        pkt.setOpcode(opcode);
+        ReadPacket pkt = PacketManager.getPacket(opcode);
         pkt.setBuffer(buf);
-        pkt.setChannel(ctx);
 
-        if (pkt.read())
-            pkt.run();
+        try {
+            if (pkt.read())
+                pkt.run(getServer(), ctx);
+        } finally {
+            //buf.release(); wrong!!!
+        }
     }
 
     @Override

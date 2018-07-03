@@ -1,4 +1,4 @@
-package com.mmobite.admin_jobs.network.server;
+package com.mmobite.admin_jobs.network.admin_channel.server;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -6,9 +6,9 @@ import java.util.Properties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class AdminJobServerProperties {
+public class AdminServerProperties {
 
-    private static Logger log = LoggerFactory.getLogger(AdminJobServerProperties.class.getName());
+    private static Logger log = LoggerFactory.getLogger(AdminServerProperties.class.getName());
 
     public static boolean Enabled;
     public static int Port;
