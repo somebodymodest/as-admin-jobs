@@ -50,7 +50,8 @@ public class OpcodeCS {
      	    S - hwid (UTF-16LE string)
      	    S - account (UTF-16LE string)
      */
-    public static final int SendMessageToGame = 0x99;
+    public static final int SendMessageToGameIL = 0x73;
+    public static final int SendMessageToGameGF = 0x99;
 
     /*
     format: "cddS"

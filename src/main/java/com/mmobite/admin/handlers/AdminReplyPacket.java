@@ -1,8 +1,12 @@
 package com.mmobite.admin.handlers;
 
 import com.mmobite.admin.model.packet.WritePacket;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class AdminReplyPacket extends WritePacket {
+
+    private static Logger log = LoggerFactory.getLogger(AdminReplyPacket.class.getName());
 
     private int op_code_;
     private int success_;

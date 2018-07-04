@@ -7,27 +7,28 @@ import io.netty.channel.ChannelHandlerContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class KickCharacterPacket extends ReadPacket {
+public class SendMessageToGamePacketIL extends ReadPacket {
 
-    private static Logger log = LoggerFactory.getLogger(KickCharacterPacket.class.getName());
+    private static Logger log = LoggerFactory.getLogger(SendMessageToGamePacketIL.class.getName());
 
-    private int char_id_;
+    private int msg_id_;
     private String admin_name_;
 
     @Override
     public boolean read() {
-        char_id_ = readD();
+        msg_id_ = readD();
         admin_name_ = readS();
         return true;
     }
 
     @Override
     public void run(ITcpServer server, ChannelHandlerContext ctx) {
+        // process message
         server.replyOk(ctx, getOpcode());
     }
 
     @Override
     public int getOpcode() {
-        return OpcodeCS.KickCharacter;
+        return OpcodeCS.SendMessageToGameIL;
     }
 }

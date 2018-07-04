@@ -1,15 +1,15 @@
 package com.mmobite.admin.handlers;
 
-import com.mmobite.admin.packets.OpcodeCS;
 import com.mmobite.admin.model.packet.ReadPacket;
 import com.mmobite.admin.model.server.ITcpServer;
+import com.mmobite.admin.packets.OpcodeCS;
 import io.netty.channel.ChannelHandlerContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class SendMessageToGamePacket extends ReadPacket {
+public class SendMessageToGamePacketGF extends ReadPacket {
 
-    private static Logger log = LoggerFactory.getLogger(SendMessageToGamePacket.class.getName());
+    private static Logger log = LoggerFactory.getLogger(SendMessageToGamePacketGF.class.getName());
 
     private int msg_id_;
     private String admin_name_;
@@ -29,6 +29,6 @@ public class SendMessageToGamePacket extends ReadPacket {
 
     @Override
     public int getOpcode() {
-        return OpcodeCS.SendMessageToGame;
+        return OpcodeCS.SendMessageToGameGF;
     }
 }

@@ -8,7 +8,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.mmobite.admin.model.packet.WritePacket;
 
-@ChannelHandler.Sharable
 public class PacketEncoder extends MessageToByteEncoder<WritePacket> {
 
     private static Logger log = LoggerFactory.getLogger(PacketEncoder.class.getName());

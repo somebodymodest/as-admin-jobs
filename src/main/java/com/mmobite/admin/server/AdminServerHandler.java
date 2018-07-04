@@ -18,8 +18,11 @@ package com.mmobite.admin.server;
 import com.mmobite.admin.model.packet.ReadPacket;
 import com.mmobite.admin.packets.PacketManager;
 import io.netty.buffer.ByteBuf;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Handler for a server-side channel.  This handler maintains stateful
@@ -28,7 +31,10 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
  * to create a new handler instance whenever you create a new channel and insert
  * this handler  to avoid a race condition.
  */
+@ChannelHandler.Sharable
 public class AdminServerHandler extends ChannelInboundHandlerAdapter {
+
+    private static Logger log = LoggerFactory.getLogger(AdminServerHandler.class.getName());
 
     private AdminServer server_;
 
@@ -47,6 +53,8 @@ public class AdminServerHandler extends ChannelInboundHandlerAdapter {
         ByteBuf buf = (ByteBuf) msg;
         int opcode = (int) buf.readUnsignedByte();
 
+        log.debug("Called packet opcode[{}]", opcode);
+
         ReadPacket pkt = PacketManager.getPacket(opcode);
         pkt.setBuffer(buf);
 
@@ -54,7 +62,7 @@ public class AdminServerHandler extends ChannelInboundHandlerAdapter {
             if (pkt.read())
                 pkt.run(getServer(), ctx);
         } finally {
-            //buf.release(); wrong!!!
+            //buf.release(); //wrong!!!
         }
     }
 

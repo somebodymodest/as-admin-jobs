@@ -1,0 +1,1 @@
+java.exe -cp ./* com.mmobite.admin.Main

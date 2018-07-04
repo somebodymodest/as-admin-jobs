@@ -4,8 +4,12 @@ import com.mmobite.admin.packets.OpcodeCS;
 import com.mmobite.admin.model.packet.ReadPacket;
 import com.mmobite.admin.model.server.ITcpServer;
 import io.netty.channel.ChannelHandlerContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class DeleteUserPostPacket extends ReadPacket {
+
+    private static Logger log = LoggerFactory.getLogger(DeleteUserPostPacket.class.getName());
 
     private int char_id_;
     private int account_id_;

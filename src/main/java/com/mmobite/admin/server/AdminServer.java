@@ -32,24 +32,24 @@ public final class AdminServer extends ITcpServer {
 
     private final static AdminServerHandler handler_ = new AdminServerHandler();
 
-    public static void init(String[] args) {
-        AdminServerProperties.load("admin_job.properties");
+    public static void init(String configPath) {
+        AdminServerProperties.load(configPath);
         new Thread(() -> {
             try {
                 AdminServer server = new AdminServer();
-                server.start(args);
+                server.start();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }).start();;
     }
 
-    void start(String[] args) throws Exception {
+    void start() throws Exception {
         try {
             ServerBootstrap b = new ServerBootstrap();
             b.group(bossGroup_, workerGroup_)
                     .channel(NioServerSocketChannel.class)
-                    .handler(new LoggingHandler(LogLevel.INFO))
+                    .handler(new LoggingHandler(LogLevel.ERROR))
                     .childHandler(new AdminServerInitializer(handler_));
 
             handler_.setServer(this);

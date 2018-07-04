@@ -2,9 +2,6 @@ package com.mmobite.admin.packets;
 
 import com.mmobite.admin.handlers.*;
 import com.mmobite.admin.model.packet.ReadPacket;
-import com.mmobite.admin.network.admin_channel.handlers.*;
-import com.mmobite.admin_jobs.network.admin_channel.handlers.*;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,7 +16,8 @@ public class PacketManager {
         packets.put(OpcodeCS.CheckVersion, CheckVersionPacket.class);
         packets.put(OpcodeCS.KickCharacter, KickCharacterPacket.class);
         packets.put(OpcodeCS.PunishChar, PunishCharPacket.class);
-        packets.put(OpcodeCS.SendMessageToGame, SendMessageToGamePacket.class);
+        packets.put(OpcodeCS.SendMessageToGameIL, SendMessageToGamePacketIL.class);
+        packets.put(OpcodeCS.SendMessageToGameGF, SendMessageToGamePacketGF.class);
         packets.put(OpcodeCS.DeleteUserPost, DeleteUserPostPacket.class);
     }
 
@@ -27,7 +25,7 @@ public class PacketManager {
         try {
             return packets.get(opcode).newInstance();
         } catch (Exception ex) {
-            return new CheckVersionPacket();
+            return new DummyReadPacket();
         }
     }
 }

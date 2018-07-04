@@ -5,8 +5,12 @@ import com.mmobite.admin.packets.OpcodeCS;
 import com.mmobite.admin.model.packet.ReadPacket;
 import com.mmobite.admin.model.server.ITcpServer;
 import io.netty.channel.ChannelHandlerContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class PunishCharPacket extends ReadPacket {
+
+    private static Logger log = LoggerFactory.getLogger(PunishCharPacket.class.getName());
 
     private int char_id_;
     private int punish_type_;
