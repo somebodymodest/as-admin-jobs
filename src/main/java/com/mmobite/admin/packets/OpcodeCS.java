@@ -9,7 +9,7 @@ public class OpcodeCS {
     public static final int CheckVersion = 0x00;
 
     /*
-    format: "cS"
+    format: "cdS"
         c - opcode
         d - char_id
         S - admin_name (UTF16-LE)
@@ -17,7 +17,7 @@ public class OpcodeCS {
     public static final int KickCharacter = 0x05;
 
     /*
-    format: "cS"
+    format: "cdddS"
         c - opcode
         d - char_id
         d - punish_type (2 - mute chat)
@@ -53,7 +53,7 @@ public class OpcodeCS {
     public static final int SendMessageToGame = 0x99;
 
     /*
-    format: "cS"
+    format: "cddS"
         c - opcode
         d - char_id
         d - account_id
