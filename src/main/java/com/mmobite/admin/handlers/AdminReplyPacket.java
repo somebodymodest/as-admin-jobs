@@ -1,7 +1,6 @@
-package com.mmobite.admin_jobs.network.admin_channel.handlers;
+package com.mmobite.admin.handlers;
 
-import com.mmobite.admin_jobs.network.model.packet.ReadPacket;
-import com.mmobite.admin_jobs.network.model.packet.WritePacket;
+import com.mmobite.admin.model.packet.WritePacket;
 
 public class AdminReplyPacket extends WritePacket {
 

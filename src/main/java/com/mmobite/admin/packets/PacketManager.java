@@ -1,7 +1,9 @@
-package com.mmobite.admin_jobs.network.admin_channel.packets;
+package com.mmobite.admin.packets;
 
+import com.mmobite.admin.handlers.*;
+import com.mmobite.admin.model.packet.ReadPacket;
+import com.mmobite.admin.network.admin_channel.handlers.*;
 import com.mmobite.admin_jobs.network.admin_channel.handlers.*;
-import com.mmobite.admin_jobs.network.model.packet.ReadPacket;
 
 import java.util.HashMap;
 import java.util.Map;

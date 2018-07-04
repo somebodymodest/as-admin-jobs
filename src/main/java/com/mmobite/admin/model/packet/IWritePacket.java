@@ -1,4 +1,4 @@
-package com.mmobite.admin_jobs.network.model.packet;
+package com.mmobite.admin.model.packet;
 
 /**
  * Created by Ivan on 22.03.2018.

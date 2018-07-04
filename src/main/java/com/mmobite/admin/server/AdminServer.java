@@ -13,11 +13,10 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package com.mmobite.admin_jobs.network.admin_channel.server;
+package com.mmobite.admin.server;
 
-import com.mmobite.admin_jobs.network.admin_channel.handlers.AdminReplyPacket;
-import com.mmobite.admin_jobs.network.model.packet.ReadPacket;
-import com.mmobite.admin_jobs.network.model.server.ITcpServer;
+import com.mmobite.admin.handlers.AdminReplyPacket;
+import com.mmobite.admin.model.server.ITcpServer;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.EventLoopGroup;

@@ -1,4 +1,4 @@
-package com.mmobite.admin_jobs.network.model.packet;
+package com.mmobite.admin.model.packet;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;

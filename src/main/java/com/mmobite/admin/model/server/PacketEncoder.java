@@ -1,4 +1,4 @@
-package com.mmobite.admin_jobs.network.model.server;
+package com.mmobite.admin.model.server;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandler;
@@ -6,7 +6,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.mmobite.admin_jobs.network.model.packet.WritePacket;
+import com.mmobite.admin.model.packet.WritePacket;
 
 @ChannelHandler.Sharable
 public class PacketEncoder extends MessageToByteEncoder<WritePacket> {

@@ -1,6 +1,6 @@
-package com.mmobite.admin_jobs.network.model.packet;
+package com.mmobite.admin.model.packet;
 
-import com.mmobite.admin_jobs.network.model.server.ITcpServer;
+import com.mmobite.admin.model.server.ITcpServer;
 import io.netty.channel.ChannelHandlerContext;
 
 /**

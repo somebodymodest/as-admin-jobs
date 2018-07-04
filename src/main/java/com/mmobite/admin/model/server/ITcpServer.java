@@ -1,10 +1,10 @@
-package com.mmobite.admin_jobs.network.model.server;
+package com.mmobite.admin.model.server;
 
 import io.netty.channel.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.mmobite.admin_jobs.network.model.packet.WritePacket;
+import com.mmobite.admin.model.packet.WritePacket;
 
 public abstract class ITcpServer {
 

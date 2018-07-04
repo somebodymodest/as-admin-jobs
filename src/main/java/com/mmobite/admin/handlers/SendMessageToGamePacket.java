@@ -1,9 +1,8 @@
-package com.mmobite.admin_jobs.network.admin_channel.handlers;
+package com.mmobite.admin.handlers;
 
-import com.mmobite.admin_jobs.network.admin_channel.packets.OpcodeCS;
-import com.mmobite.admin_jobs.network.model.packet.ReadPacket;
-import com.mmobite.admin_jobs.network.model.server.ITcpServer;
-import com.sun.org.apache.xpath.internal.compiler.OpCodes;
+import com.mmobite.admin.packets.OpcodeCS;
+import com.mmobite.admin.model.packet.ReadPacket;
+import com.mmobite.admin.model.server.ITcpServer;
 import io.netty.channel.ChannelHandlerContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

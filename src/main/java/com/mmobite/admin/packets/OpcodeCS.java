@@ -1,7 +1,4 @@
-package com.mmobite.admin_jobs.network.admin_channel.packets;
-
-import java.util.HashMap;
-import java.util.Map;
+package com.mmobite.admin.packets;
 
 public class OpcodeCS {
     /*

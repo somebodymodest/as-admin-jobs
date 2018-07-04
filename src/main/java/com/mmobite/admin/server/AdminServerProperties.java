@@ -1,4 +1,4 @@
-package com.mmobite.admin_jobs.network.admin_channel.server;
+package com.mmobite.admin.server;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
