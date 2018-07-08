@@ -30,7 +30,7 @@ public final class AdminServer extends ITcpServer {
     private final static EventLoopGroup bossGroup_ = new NioEventLoopGroup(1);
     private final static EventLoopGroup workerGroup_ = new NioEventLoopGroup();
 
-    private final static AdminServerHandler handler_ = new AdminServerHandler();
+    private final AdminServerHandler handler_ = new AdminServerHandler();
 
     public static void init(String configPath) {
         AdminServerProperties.load(configPath);
