@@ -27,6 +27,12 @@ public abstract class WritePacket implements IWritePacket {
         buf_ = buf;
     }
 
+    public void releaseBuffer()
+    {
+        if (buf_ != null)
+            buf_.release();
+    }
+
     public void writeC(byte value) {
         buf_.writeByte(value);
     }

@@ -61,9 +61,10 @@ public class AdminServerHandler extends ChannelInboundHandlerAdapter {
         try {
             if (pkt.read())
                 pkt.run(getServer(), ctx);
-        } finally {
-            //buf.release(); //wrong!!!
+        } catch (Exception e) {
         }
+
+        pkt.releaseBuffer();
     }
 
     @Override
