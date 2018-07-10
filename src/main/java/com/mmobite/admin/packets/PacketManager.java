@@ -21,6 +21,10 @@ public class PacketManager {
         packets.put(OpcodeCS.DeleteUserPost, DeleteUserPostPacket.class);
     }
 
+    public static void addPacket(Integer type, Class<? extends ReadPacket> packet) {
+        packets.put(type, packet);
+    }
+
     public static ReadPacket getPacket(int opcode) {
         try {
             return packets.get(opcode).newInstance();
