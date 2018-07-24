@@ -17,6 +17,7 @@ package com.mmobite.admin.server;
 
 import com.mmobite.admin.handlers.AdminReplyPacket;
 import com.mmobite.admin.model.server.ITcpServer;
+import com.mmobite.api.AdminActionImpl;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.EventLoopGroup;
@@ -31,8 +32,10 @@ public final class AdminServer extends ITcpServer {
     private final static EventLoopGroup workerGroup_ = new NioEventLoopGroup();
 
     private final AdminServerHandler handler_ = new AdminServerHandler();
+    private static AdminActionImpl admin_impl_;
 
-    public static void init(String configPath) {
+    public static void init(String configPath, AdminActionImpl ai) {
+        admin_impl_ = ai;
         AdminServerProperties.load(configPath);
         new Thread(() -> {
             try {
@@ -64,6 +67,11 @@ public final class AdminServer extends ITcpServer {
     public EventLoopGroup getLoop()
     {
         return workerGroup_;
+    }
+
+    public static AdminActionImpl getAdminImpl()
+    {
+        return admin_impl_;
     }
 
     public void replyOk(ChannelHandlerContext ctx, int op_code) {

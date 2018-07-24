@@ -12,15 +12,14 @@ public class PacketManager {
 
     private final static Map<Integer, Class<? extends ReadPacket>> packets = new HashMap<>();
 
-// examples (see doc directory)
-//    static {
-//        packets.put(OpcodeCS.CheckVersion, CheckVersionPacket.class);
-//        packets.put(OpcodeCS.KickCharacter, KickCharacterPacket.class);
-//        packets.put(OpcodeCS.PunishChar, PunishCharPacket.class);
-//        packets.put(OpcodeCS.SendMessageToGameIL, SendMessageToGamePacketIL.class);
-//        packets.put(OpcodeCS.SendMessageToGameGF, SendMessageToGamePacketGF.class);
-//        packets.put(OpcodeCS.DeleteUserPost, DeleteUserPostPacket.class);
-//    }
+    static {
+        packets.put(OpcodeCS.CheckVersion, CheckVersionPacket.class);
+        packets.put(OpcodeCS.KickCharacter, KickCharacterPacket.class);
+        packets.put(OpcodeCS.PunishChar, PunishCharPacket.class);
+        packets.put(OpcodeCS.SendMessageToGameIL, SendMessageToGamePacketIL.class);
+        packets.put(OpcodeCS.SendMessageToGameGF, SendMessageToGamePacketGF.class);
+        packets.put(OpcodeCS.DeleteUserPost, DeleteUserPostPacket.class);
+    }
 
     public static void addPacket(int opcode, Class<? extends ReadPacket> packet) {
         packets.put(opcode, packet);
