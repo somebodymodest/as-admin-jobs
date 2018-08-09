@@ -23,6 +23,7 @@ public class SendMessageToGamePacketIL extends ReadPacket {
     private int delay_ = 1;
     private String[] s_params_ = null;
     private String admin_name_;
+    private String world_guid_;
 
     @Override
     public boolean read() {
@@ -44,7 +45,20 @@ public class SendMessageToGamePacketIL extends ReadPacket {
             s_params_[0] = readS(); // S - hwid (UTF-16LE string)
             s_params_[1] = readS(); // S - account (UTF-16LE string)
         }
+        else if (msg_id_ == 8)  // ban account
+        {
+            s_params_ = new String[2];
+            s_params_[0] = readS(); // S - account (UTF-16LE string)
+            s_params_[1] = readS(); // S - ban remark (UTF-16LE string)
+        }
+        else if (msg_id_ == 9)  // unban account
+        {
+            s_params_ = new String[2];
+            s_params_[0] = readS(); // S - account (UTF-16LE string)
+            s_params_[1] = readS(); // S - unban remark (UTF-16LE string)
+        }
         admin_name_ = readS();
+        world_guid_ = readS();
         return true;
     }
 

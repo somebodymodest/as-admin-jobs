@@ -15,10 +15,12 @@ public class CheckVersionPacket extends ReadPacket {
     private static Logger log = LoggerFactory.getLogger(CheckVersionPacket.class.getName());
 
     private String admin_name_;
+    private String world_guid_;
 
     @Override
     public boolean read() {
         admin_name_ = readS();
+        world_guid_ = readS();
         return true;
     }
 

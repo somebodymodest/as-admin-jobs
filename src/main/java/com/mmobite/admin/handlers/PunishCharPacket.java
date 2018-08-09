@@ -17,6 +17,7 @@ public class PunishCharPacket extends ReadPacket {
     private int punish_type_;
     private int time_;
     private String admin_name_;
+    private String world_guid_;
 
     @Override
     public boolean read() {
@@ -24,6 +25,7 @@ public class PunishCharPacket extends ReadPacket {
         punish_type_= readD();
         time_ = readD();
         admin_name_ = readS();
+        world_guid_ = readS();
         return true;
     }
 

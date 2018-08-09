@@ -14,12 +14,14 @@ public class DeleteUserPostPacket extends ReadPacket {
     private int char_id_;
     private int account_id_;
     private String admin_name_;
+    private String world_guid_;
 
     @Override
     public boolean read() {
         char_id_ = readD();
         account_id_ = readD();
         admin_name_ = readS();
+        world_guid_ = readS();
         return true;
     }
 
