@@ -12,6 +12,8 @@ public class AdminServerProperties {
 
     public static boolean Enabled;
     public static int Port;
+    public static String WorldGuid;
+    public static boolean CheckWorldGuid;
 
     public static void load(String configPath)
     {
@@ -24,6 +26,8 @@ public class AdminServerProperties {
 
             Enabled = Boolean.parseBoolean(prop.getProperty("Enabled", "true"));
             Port = Integer.parseInt(prop.getProperty("Port", "2012"));
+            WorldGuid = prop.getProperty("WorldGuid", "076BA8A9-1CDA-4697-8E1D-E8F3044BF184");
+            CheckWorldGuid = Boolean.parseBoolean(prop.getProperty("CheckWorldGuid", "false"));
         }
         catch (Exception ex)
         {
