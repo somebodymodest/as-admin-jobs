@@ -33,9 +33,10 @@ public class KickCharacterPacket extends ReadPacket {
             return;
         }
 
-        AdminServer.getAdminImpl().kickPlayer(char_id_, admin_name_);
-
-        server.replyOk(ctx, getOpcode());
+        if (AdminServer.getAdminImpl().kickPlayer(char_id_, admin_name_))
+            server.replyOk(ctx, getOpcode());
+        else
+            server.replyError(ctx, getOpcode(), 1);
     }
 
     @Override

@@ -72,9 +72,10 @@ public class SendMessageToGamePacketGF extends ReadPacket {
         }
 
         // process message
-        AdminServer.getAdminImpl().sendMessageToGame(msg_id_, s_params_, time_, delay_, admin_name_);
-
-        server.replyOk(ctx, getOpcode());
+        if (AdminServer.getAdminImpl().sendMessageToGame(msg_id_, s_params_, time_, delay_, admin_name_))
+            server.replyOk(ctx, getOpcode());
+        else
+            server.replyError(ctx, getOpcode(), 1);
     }
 
     @Override

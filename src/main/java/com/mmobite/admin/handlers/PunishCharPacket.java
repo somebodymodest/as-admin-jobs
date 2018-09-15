@@ -38,9 +38,10 @@ public class PunishCharPacket extends ReadPacket {
             return;
         }
 
-        AdminServer.getAdminImpl().punishChar(char_id_, punish_type_, time_, admin_name_);
-
-        server.replyOk(ctx, getOpcode());
+        if (AdminServer.getAdminImpl().punishChar(char_id_, punish_type_, time_, admin_name_))
+            server.replyOk(ctx, getOpcode());
+        else
+            server.replyError(ctx, getOpcode(), 1);
     }
 
     @Override

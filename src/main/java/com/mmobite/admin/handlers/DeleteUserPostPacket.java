@@ -35,9 +35,10 @@ public class DeleteUserPostPacket extends ReadPacket {
             return;
         }
 
-        AdminServer.getAdminImpl().deleteUserPost(char_id_, account_id_, admin_name_);
-
-        server.replyOk(ctx, getOpcode());
+        if (AdminServer.getAdminImpl().deleteUserPost(char_id_, account_id_, admin_name_))
+            server.replyOk(ctx, getOpcode());
+        else
+            server.replyError(ctx, getOpcode(), 1);
     }
 
     @Override
